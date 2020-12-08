@@ -14,7 +14,7 @@ for filename in os.listdir(indir):
 	file_prefix = filename.split('.')[0]
 
 	sound = ffmpeg.input(indir + filename).audio  # Import the video and get the audio from it
-	normalised = ffmpeg.filter(sound, "dynaudnorm")  # Apply dynamic audio compression (fixing any volume issues)
+	normalised = ffmpeg.filter(sound, "dynaudnorm")  # Apply dynamic range compression (fixing any volume issues)
 	out_sound = ffmpeg.output(normalised, outdir + file_prefix + '.mp3', audio_bitrate='96k') # Output at a low bitrate as a mp3
 
 
